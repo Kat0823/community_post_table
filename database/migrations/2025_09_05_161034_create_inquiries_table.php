@@ -17,7 +17,7 @@ return new class extends Migration
             $table -> int('Owner id');
             $table-> text('Message');
             $table-> DATETIME('Datasent');
-            $table-> ENUM('Status'['Pending' "Replied"]);
+            $table->enum('Status', ['Pending', 'Replied']);
             $table->timestamps();
         });
     }
