@@ -1,3 +1,59 @@
+@extend('layouts.master')
+
+@section('title')
+BoardingHunter - community_post
+@endsection
+
+@sectionZ('page')
+Community_post
+@endsection
+
+@section('addbtn')
+<div>
+    <a class="add" href="/Community_post/create">Add an Post</a>
+</div>
+@endsection
+
+@section('table')
+<div class="table">
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Address</th>
+                <td>Contact Number</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($community_post as community_post)
+            <tr>
+                <td>{{community_post->User}}</td>
+                <td>{{community_post->Address}}</td>
+                <td>{{community_post->Contact Number}}</td>
+                <td>{{community_post->Email}}</td>
+            </tr>
+        </tbody>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!
 DOCTYPE html>
 <html lang="en">
