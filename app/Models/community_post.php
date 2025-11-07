@@ -1,27 +1,32 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use App\Models\CommunityPost; // 
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class CommunityPostController extends Controller
+class CommunityPost extends Model
 {
-    public function index()
-    {
-        
-        $communityPosts = CommunityPost::all();
+    use HasFactory;
 
-       
-        return view('CommunityPost.index', compact('communityPosts'));
+    protected $table = 'community_posts';
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'content',
+        'image',
+        'views',
+    ];
+
+    // relations
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function show($id)
+    public function comments()
     {
-     
-        $communityPost = CommunityPost::findOrFail($id);
-
-    
-        return view('CommunityPost.show', compact('communityPost'));
+        return $this->hasMany(Comment::class); // optional
     }
 }

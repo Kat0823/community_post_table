@@ -41,7 +41,10 @@ Route::get('/boardinghunter/home/profile', function () {
     return view('profiles/showprofile');
 })->name('profile.show');
 
-//communityPost
-Route::get('/boardinghunter/home/communitypost',function(){
-    return view('communitypost/showprofile');
-})->name('communitypost.show');
+// Display all posts for CommunityPost
+Route::get('/boardinghunter/home/communitypost', [CommunityPostController::class, 'index'])
+->name('communitypost.index');
+
+// Display a single post (by ID) CommunityPost
+Route::get('/boardinghunter/home/communitypost/{id}', [CommunityPostController::class, 'show'])
+->name('communitypost.show');

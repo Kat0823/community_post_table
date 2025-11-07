@@ -1,20 +1,7 @@
-@extend('layouts.master')
+@extends('layouts.app')
 
-
-@section('title')
-BoardingHunter - community_post
-@endsection
-
-@sectionZ('page')
-Community_post
-@endsection
-
-
-@section('table')
-<div class="table">
-    <h5>{{ $communityPost->title }}</h5>
+@section('content')
+    <h2>{{ $communityPost->title }}</h2>
     <p>{{ $communityPost->content }}</p>
-    <p>Posted by: {{ $communityPost->user->name ?? 'Unknown User' }}</p>
-    <p>Views: {{ $communityPost->views ?? 0 }}</p>
-</div>
+    <a href="{{ route('communitypost.index') }}">← Back to all posts</a>
 @endsection

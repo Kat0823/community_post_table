@@ -15,7 +15,21 @@ Community_post
 </div>
 @endsection
 
-@section('table')
+@section('table')@extends('layouts.app')
+
+@section('content')
+    <h2>Community Posts</h2>
+
+    @foreach($communityPosts as $post)
+        <div>
+            <h3>{{ $post->title }}</h3>
+            <p>{{ Str::limit($post->content, 100) }}</p>
+            <a href="{{ route('communitypost.show', $post->id) }}">Read More</a>
+        </div>
+        <hr>
+    @endforeach
+@endsection
+
 <div class="table">
     <table style="width:100%">
         <thead>
@@ -37,6 +51,7 @@ Community_post
             </tr>
         </tbody>
 </div>
+@endsection
 
 
 
