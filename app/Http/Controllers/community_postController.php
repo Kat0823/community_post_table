@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\CommunityPost;
+use App\Models\CommunityPost;
 use Illuminate\Http\Request;
 
 class CommunityPostController extends Controller
@@ -16,6 +16,6 @@ class CommunityPostController extends Controller
       public function show($id)
       {
         $CommunityPost = CommunityPost::find($id)
-        return view('CommunityPost.show', compact('CommunityPost'));
+        return view('CommunityPost.show', compact('CommunityPost'))
       }
 }
