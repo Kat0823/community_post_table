@@ -1,30 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\CommunityPost; // 
+use Illuminate\Http\Request;
 
-class CommunityPost extends Model
+class CommunityPostController extends Controller
 {
-    use HasFactory;
-    
-    // Explicitly set the table name because it deviates from Laravel's naming convention
-    protected $table = 'community__posts';
-
-    // Specify which fields can be mass-assigned
-    protected $fillable = [
-        'user_id',
-        'Title', // Using your capitalized column names
-        'Content',
-    ];
-
-    /**
-     * Define the relationship: A post belongs to one User.
-     */
-    public function user()
+    public function index()
     {
-        // Assuming your user model is named 'User'
-        return $this->belongsTo(CommunityPost::class);
+        
+        $communityPosts = CommunityPost::all();
+
+       
+        return view('CommunityPost.index', compact('communityPosts'));
+    }
+
+    public function show($id)
+    {
+     
+        $communityPost = CommunityPost::findOrFail($id);
+
+    
+        return view('CommunityPost.show', compact('communityPost'));
     }
 }

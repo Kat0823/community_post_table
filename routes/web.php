@@ -40,3 +40,8 @@ Route::get('/boardinghunter/home/showinquiries', function () {
 Route::get('/boardinghunter/home/profile', function () {
     return view('profiles/showprofile');
 })->name('profile.show');
+
+//communityPost
+Route::get('/boardinghunter/home/communitypost',function(){
+    return view('communitypost/showprofile');
+})->name('communitypost.show');

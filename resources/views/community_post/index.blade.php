@@ -1,5 +1,6 @@
 @extend('layouts.master')
 
+
 @section('title')
 BoardingHunter - community_post
 @endsection
@@ -28,7 +29,8 @@ Community_post
         <tbody>
             @foreach($community_post as community_post)
             <tr>
-                <td>{{community_post->User}}</td>
+                <td><a href="/Community_post/{{$user->id">{{community_post->User}}</a>
+                </td>
                 <td>{{community_post->Address}}</td>
                 <td>{{community_post->Contact Number}}</td>
                 <td>{{community_post->Email}}</td>
@@ -43,16 +45,7 @@ Community_post
 
 
 
-
-
-
-
-
-
-
-
-
-
+<!-- 
 
 <!
 DOCTYPE html>
@@ -93,3 +86,4 @@ DOCTYPE html>
     </table>
 </body>
 </html>
+ -->
